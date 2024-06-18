@@ -73,7 +73,7 @@ int consulta()
 	
 	if(file == NULL)
 	{
-		printf("Não foi possível abrir o arquivo, não localizado.\n");
+		printf("Arquivo não localizado.\n\n");
 		
 	}	
 	
@@ -105,7 +105,7 @@ int deletar()
 	
 	if(file == NULL)
 	{
-		printf("O usuário não se encontra no sistema!.\n");
+		printf("O usuário não se encontra no sistema!.\n\n");
 		system("pause");
 	}
 		
@@ -128,7 +128,8 @@ int main()
 	    printf("Escolha a opção desejada do menu:\n\n");
 	    printf("\t1 - registrar nomes\n");
         printf("\t2 - consultar nomes\n");
-        printf("\t3 - deletar nomes\n\n");
+        printf("\t3 - deletar nomes\n");
+        printf("\t4 - Sair do sistema\n\n");
 	    printf("Opção: "); //Fim do menu
     
         scanf("%d", &opcao); //o %d está falando "armazene na variável opcao o que o usuário digitar"
@@ -150,8 +151,12 @@ int main()
 		    deletar();
 		    break;
 		    
+		    case 4:
+		    printf("Obrigado por utilizar o sistema\n\n");
+		    return 0;
+		    
 		    default:
-		    printf("Essa opção não está disponível\n");
+		    printf("Essa opção não está disponível\n\n");
 		    system("pause");
 		    break;
 		    
