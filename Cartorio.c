@@ -102,6 +102,7 @@ int deletar()
 	
 	FILE *file;
 	file = fopen(cpf,"r");
+	fclose(file);
 	
 	if(file == NULL)
 	{
@@ -116,53 +117,76 @@ int main()
 {    
 	int opcao=0; //Definindo as variáveis
 	int laco=1;
+	char senhadigitada[10]="a";
+	char usuariodigitado[10]="b";
+	int comparacaousuario;
+	int comparacaosenha;
 	
-	for(laco=1;laco=1;)
+	printf("### Cartório da EBAC ###\n\n");
+	printf("Login de administrador!\n\nDigite seu usuario: ");
+	scanf("%s",usuariodigitado);
+	printf("\nDigite sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacaousuario = strcmp(usuariodigitado, "Henrique");
+	comparacaosenha = strcmp(senhadigitada, "admin");
+	
+	if(comparacaosenha == 0 && comparacaousuario == 0)
 	{
+	
+	    for(laco=1;laco=1;)
+	    {
 		
-		system("cls");
+		    setlocale(LC_ALL, "portuguese"); //Definindo a linguagem
+			
+			system("cls");
 	
-        setlocale(LC_ALL, "portuguese"); //Definindo a linguagem
-	
-	    printf("### Cartório da EBAC ###\n\n"); //Início do menu
-	    printf("Escolha a opção desejada do menu:\n\n");
-	    printf("\t1 - registrar nomes\n");
-        printf("\t2 - consultar nomes\n");
-        printf("\t3 - deletar nomes\n");
-        printf("\t4 - Sair do sistema\n\n");
-	    printf("Opção: "); //Fim do menu
+	        printf("### Cartório da EBAC ###\n\n"); //Início do menu
+	        printf("Escolha a opção desejada do menu:\n\n");
+	        printf("\t1 - registrar nomes\n");
+            printf("\t2 - consultar nomes\n");
+            printf("\t3 - deletar nomes\n");
+            printf("\t4 - Sair do sistema\n\n");
+	        printf("Opção: "); //Fim do menu
     
-        scanf("%d", &opcao); //o %d está falando "armazene na variável opcao o que o usuário digitar"
+            scanf("%d", &opcao); //o %d está falando "armazene na variável opcao o que o usuário digitar"
     
-        system("cls"); //Deleta todas as informações anteriores a ação
+            system("cls"); //Deleta todas as informações anteriores a ação
         
         
-        switch(opcao)
-        {
-        	case 1:
-        	registro();
-    	    break;
+            switch(opcao)
+            {
+            	case 1:
+            	registro();
+        	    break;
     	    
-    	    case 2:
-    	    consulta();
-		    break;
+        	    case 2:
+        	    consulta();
+	    	    break;
 		    
-		    case 3:
-		    deletar();
-		    break;
+	    	    case 3:
+	    	    deletar();
+	    	    break;
 		    
-		    case 4:
-		    printf("Obrigado por utilizar o sistema\n\n");
-		    return 0;
+	    	    case 4:
+	    	    printf("Obrigado por utilizar o sistema\n\n");
+	    	    return 0;
 		    
-		    default:
-		    printf("Essa opção não está disponível\n\n");
-		    system("pause");
-		    break;
+	    	    default:
+	    	    printf("Essa opção não está disponível\n\n");
+	    	    system("pause");
+	    	    break;
 		    
 		    
-		} //Fim da seleção 
+	    	} //Fim da seleção 
 	
-    }
+        }
+    } 
+	
+	else
+        system("cls");
+		printf("Login incorreto\n\n");
+        return 0;
+	
 }
 
